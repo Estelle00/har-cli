@@ -1,0 +1,36 @@
+{
+  "name": "@har/eslint-config",
+  "version": "1.0.0",
+  "description": "汇安融vue3项目默认eslint配置",
+  "main": "index.js",
+  "dependencies": {
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^8.2.0",
+    "eslint-config-prettier": "^6.15.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.4.1",
+    "prettier":"^2.5.1"
+  },
+  "keywords": [
+    "eslint",
+    "vue",
+    "eslint-config"
+  ],
+  "author": "liubingwen <liubingwen@huianrong.com>",
+  "homepage": "",
+  "license": "ISC",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://nexus.huianrong.com/repository/npm-group/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@192.168.3.199:10022/frontend/har-cli.git"
+  }
+}
