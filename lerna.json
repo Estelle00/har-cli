@@ -6,6 +6,8 @@
   ],
   "command": {
     "publish": {
+      "conventionalCommits": true,
+      "changelogPreset": "angular",
       "registry": "https://nexus.huianrong.com/repository/npm-hosted/"
     },
     "version": {

@@ -2,7 +2,8 @@
   "name": "har-cli",
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "cz-conventional-changelog": "^3.3.0"
   },
   "workspaces": [
     "packages/*"
