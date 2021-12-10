@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1-alpha.0](http://192.168.3.199:10086/frontend/har-cli/compare/@har/eslint-config@1.1.0...@har/eslint-config@1.1.1-alpha.0) (2021-12-10)
+
+
+### Features
+
+* 添加vite插件 ([5ef5424](http://192.168.3.199:10086/frontend/har-cli/commits/5ef5424ad62a0817fa42c626fb92b360e31feb0b))
+
+
+
+
+
 # 1.1.0 (2021-12-10)
 
 
