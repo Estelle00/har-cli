@@ -7,5 +7,13 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "author": "liubingwen <liubingwen@huianrong.com>",
+  "publishConfig": {
+    "registry": "https://nexus.huianrong.com/repository/npm-hosted/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.3.199:10086/frontend/har-cli"
+  }
 }

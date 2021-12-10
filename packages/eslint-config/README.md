@@ -1,11 +1,18 @@
 # `eslint-config`
+eslint 配置文件
 
-> TODO: description
-
-## Usage
+## 快速上手
+```
+npm安装：npm i eslint prettier @har/eslint-config -D
+yarn安装：yarn add eslint prettier @har/eslint-config -D
+```
 
 ```
-const eslintConfig = require('eslint-config');
-
-// TODO: DEMONSTRATE API
+添加如下代码到package.json
+"eslintConfig": {
+  "root": true,
+  "extends": [
+    "@har"
+  ]
+}
 ```

@@ -22,16 +22,11 @@
     "eslint-config"
   ],
   "author": "liubingwen <liubingwen@huianrong.com>",
-  "homepage": "",
-  "license": "ISC",
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
-    "registry": "https://nexus.huianrong.com/repository/npm-group/"
+    "registry": "https://nexus.huianrong.com/repository/npm-hosted/"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@192.168.3.199:10022/frontend/har-cli.git"
+    "url": "http://192.168.3.199:10086/frontend/har-cli"
   }
 }

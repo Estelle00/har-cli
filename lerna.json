@@ -4,10 +4,19 @@
   "packages": [
     "packages/*"
   ],
+  "changelog": {
+    "repo": "http://192.168.3.199:10086/frontend/har-cli",
+    "nextVersion": "Unreleased",
+    "labels": {
+      "feat": "新的功能",
+      "PR: Breaking Change": ":boom: Breaking Changes",
+      "fix": "Bug 修复",
+      "docs": "文档修改"
+    },
+    "cacheDir": ".changelog"
+  },
   "command": {
     "publish": {
-      "conventionalCommits": true,
-      "changelogPreset": "angular",
       "registry": "https://nexus.huianrong.com/repository/npm-hosted/"
     },
     "version": {
