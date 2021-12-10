@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://192.168.3.199:10022/frontend/har-cli/compare/@har/cli@1.0.2-alpha.2...@har/cli@1.0.2) (2021-12-10)
+
+
+### Bug Fixes
+
+* **cli:** 插件引入错误 ([d24a907](https://192.168.3.199:10022/frontend/har-cli/commits/d24a907221d8c781473bbfae47861f46b2a181b5))
+
+
+
+
+
 ## [1.0.2-alpha.2](https://192.168.3.199:10022/frontend/har-cli/compare/@har/cli@1.0.2-alpha.1...@har/cli@1.0.2-alpha.2) (2021-12-10)
 
 
