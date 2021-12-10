@@ -1,6 +1,6 @@
 {
   "name": "@har/cli",
-  "version": "1.0.2-alpha.0",
+  "version": "1.0.2-alpha.1",
   "description": "简化vite配置",
   "author": "liubingwen <liubingwen@huianrong.com>",
   "repository": {
