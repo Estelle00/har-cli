@@ -1,6 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
-import config from "src/config/vite.prod";
+import config from "../config/vite.prod";
 import { build } from "vite";
 import { CWD, OUT_DIR } from "../config";
 async function run() {
