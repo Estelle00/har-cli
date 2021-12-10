@@ -1,6 +1,6 @@
 {
   "name": "@har/cli",
-  "version": "1.0.2-alpha.1",
+  "version": "1.0.2-alpha.2",
   "description": "简化vite配置",
   "author": "liubingwen <liubingwen@huianrong.com>",
   "repository": {
@@ -21,7 +21,7 @@
     "@types/fs-extra": "^9.0.13"
   },
   "peerDependencies": {
-    "vue":"^3.2.24"
+    "vue": "^3.2.24"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^1.10.2",
