@@ -1,5 +1,5 @@
 import { InlineConfig } from "vite";
-import vitePluginExternal from "vite-plugin-external";
+import vitePluginExternal from "@har/vite-plugin-external";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { OUT_DIR, OUT_DIR_ES, OUT_DIR_LIB } from ".";

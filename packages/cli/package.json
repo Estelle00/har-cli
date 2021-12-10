@@ -30,6 +30,6 @@
     "chalk": "^5.0.0",
     "fs-extra": "^10.0.0",
     "vite": "^2.7.1",
-    "vite-plugin-external": "^1.0.0"
+    "@har/vite-plugin-external": "^1.0.1-alpha.0"
   }
 }
