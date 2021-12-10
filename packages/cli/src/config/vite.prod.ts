@@ -36,6 +36,6 @@ const config: InlineConfig = {
       formats: ["es", "cjs"],
     },
   },
-  plugins: [vitePluginExternal, vue(), vueJsx()],
+  plugins: [vitePluginExternal(), vue(), vueJsx()],
 };
 export default config;
