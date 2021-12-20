@@ -8,6 +8,7 @@ export default class Generator {
   plugins: any[];
   pkg: any;
   depSources: Record<string, string> = {};
+  fileMiddlewares: any[] = [];
   constructor(public readonly context: string, options: Options) {
     this.plugins = options.plugins;
     this.pkg = options.pkg;

@@ -1,8 +1,10 @@
 import type Generator from "./Generator";
 import path from "path";
+import ejs, { Options } from "ejs";
+import { readFileSync } from "fs-extra";
 import deepmerge from "deepmerge";
 import tryGetNewerRange from "../../utils/tryGetNewerRange";
-
+import { globbySync } from "globby";
 const isObject = (val: any) => val && typeof val === "object";
 function arrayMerge(a: any[], b: any[]) {
   return Array.from(new Set([...a, ...b]));
@@ -35,6 +37,31 @@ function depsMerge(
   return result;
 }
 
+// 获取调用者目录地址
+function extractCallDir() {
+  const obj = {};
+  Error.captureStackTrace(obj);
+  // @ts-ignore
+  const callSite = obj.stack.split("\n")[3];
+  const namedStackRegExp = /\s\((.*):\d+:\d+\)$/;
+  const anonymousStackRegExp = /at (.*):\d+:\d+$/;
+  let matchResult = callSite.match(namedStackRegExp);
+  if (!matchResult) {
+    matchResult = callSite.match(anonymousStackRegExp);
+  }
+  const fileName = matchResult[1];
+  return path.dirname(fileName);
+}
+
+function renderFile(
+  name: string,
+  data: Record<string, any>,
+  ejsOptions: Options
+) {
+  const template = readFileSync(name, "utf-8");
+
+  return ejs.render(template, data, ejsOptions);
+}
 class GeneratorAPI {
   constructor(
     public readonly id: string,
@@ -64,6 +91,41 @@ class GeneratorAPI {
         pkg[key] = val;
       }
     }
+  }
+  private injectMiddleware(middleware: any) {
+    this.generator.fileMiddlewares.push(middleware);
+  }
+  render(source: string, addData = {}, ejsOptions: Options = {}) {
+    const baseDir = extractCallDir();
+    source = path.resolve(baseDir, source);
+    this.injectMiddleware((files) => {
+      const _files = globbySync("**/*", {
+        cwd: source,
+        dot: true,
+      });
+      for (const rawPath of _files) {
+        const targetPath = rawPath
+          .split("/")
+          .map((filename) => {
+            if (filename.charAt(0) === "_") {
+              if (filename.charAt(1) !== "_") {
+                // 处理下划线转.
+                return `.${filename.slice(1)}`;
+              } else {
+                return filename.slice(1);
+              }
+            }
+            return filename;
+          })
+          .join("/");
+        const sourcePath = path.resolve(source, rawPath);
+        const content = renderFile(sourcePath, addData, ejsOptions);
+        if (Buffer.isBuffer(content) || /[^\s]/.test(content)) {
+          files[targetPath] = content;
+        }
+      }
+    });
+    // 添加文件处理方法
   }
 }
 export default GeneratorAPI;
