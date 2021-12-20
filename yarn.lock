@@ -1197,7 +1197,7 @@
   resolved "http://nexus.huianrong.com/repository/npm-group/@types/node/-/node-16.11.12.tgz#ac7fb693ac587ee182c3780c26eb65546a1a3c10"
   integrity sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==
 
-"@types/normalize-package-data@^2.4.0", "@types/normalize-package-data@^2.4.1":
+"@types/normalize-package-data@^2.4.0":
   version "2.4.1"
   resolved "http://nexus.huianrong.com/repository/npm-group/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
   integrity sha1-0zV0eaD9/dWQf+Z+F+CoXJBuEwE=
@@ -1206,6 +1206,11 @@
   version "4.0.0"
   resolved "http://nexus.huianrong.com/repository/npm-group/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
+
+"@types/semver@^7.3.9":
+  version "7.3.9"
+  resolved "http://nexus.huianrong.com/repository/npm-group/@types/semver/-/semver-7.3.9.tgz#152c6c20a7688c30b967ec1841d31ace569863fc"
+  integrity sha1-FSxsIKdojDC5Z+wYQdMazlaYY/w=
 
 "@typescript-eslint/eslint-plugin@^5.5.0":
   version "5.6.0"
@@ -1999,6 +2004,11 @@ deep-is@^0.1.3:
   version "0.1.4"
   resolved "http://nexus.huianrong.com/repository/npm-group/deep-is/-/deep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha1-pvLc5hL63S7x9Rm3NVHxfoUZmDE=
+
+deepmerge@^4.2.2:
+  version "4.2.2"
+  resolved "http://nexus.huianrong.com/repository/npm-group/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha1-RNLqNnm49NT/ujPwPYZfwee/SVU=
 
 defaults@^1.0.3:
   version "1.0.3"
@@ -4244,7 +4254,7 @@ parse-json@^4.0.0:
     error-ex "^1.3.1"
     json-parse-better-errors "^1.0.1"
 
-parse-json@^5.0.0, parse-json@^5.2.0:
+parse-json@^5.0.0:
   version "5.2.0"
   resolved "http://nexus.huianrong.com/repository/npm-group/parse-json/-/parse-json-5.2.0.tgz#c76fc66dee54231c962b22bcc8a72cf2f99753cd"
   integrity sha1-x2/Gbe5UIxyWKyK8yKcs8vmXU80=
@@ -4570,16 +4580,6 @@ read-pkg@^5.2.0:
     normalize-package-data "^2.5.0"
     parse-json "^5.0.0"
     type-fest "^0.6.0"
-
-read-pkg@^7.0.0:
-  version "7.0.0"
-  resolved "http://nexus.huianrong.com/repository/npm-group/read-pkg/-/read-pkg-7.0.0.tgz#7009094a9cd58c7efc325d31f1f6cfce1928fa00"
-  integrity sha1-cAkJSpzVjH78Ml0x8fbPzhko+gA=
-  dependencies:
-    "@types/normalize-package-data" "^2.4.1"
-    normalize-package-data "^3.0.2"
-    parse-json "^5.2.0"
-    type-fest "^2.0.0"
 
 read@1, read@~1.0.1:
   version "1.0.7"
@@ -5265,11 +5265,6 @@ type-fest@^0.8.1:
   version "0.8.1"
   resolved "http://nexus.huianrong.com/repository/npm-group/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha1-CeJJ696FHTseSNJ8EFREZn8XuD0=
-
-type-fest@^2.0.0:
-  version "2.8.0"
-  resolved "http://nexus.huianrong.com/repository/npm-group/type-fest/-/type-fest-2.8.0.tgz#39d7c9f9c508df8d6ce1cf5a966b0e6568dcc50d"
-  integrity sha512-O+V9pAshf9C6loGaH0idwsmugI2LxVNR7DtS40gVo2EXZVYFgz9OuNtOhgHLdHdapOEWNdvz9Ob/eeuaWwwlxA==
 
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"

@@ -1,3 +1,5 @@
+import GeneratorAPI from "./GeneratorAPI";
+
 interface Options {
   plugins: any[];
   pkg: any;
@@ -5,6 +7,7 @@ interface Options {
 export default class Generator {
   plugins: any[];
   pkg: any;
+  depSources: Record<string, string> = {};
   constructor(public readonly context: string, options: Options) {
     this.plugins = options.plugins;
     this.pkg = options.pkg;
@@ -13,7 +16,10 @@ export default class Generator {
   initPlugins() {
     for (const plugin of this.plugins) {
       const { id, apply } = plugin;
-      apply.then((res: any) => res.default(id));
+      apply.then((res: any) => {
+        const api = new GeneratorAPI(id, this);
+        res.default(api);
+      });
     }
   }
 }

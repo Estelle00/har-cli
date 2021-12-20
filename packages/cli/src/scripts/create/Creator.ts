@@ -29,7 +29,7 @@ export default class Creator {
   }
   resolvePlugins(rawPlugins: Record<string, any>) {
     return Object.keys(rawPlugins).map((id) => {
-      const apply = import(`./plugins/${id}/generator.js`);
+      const apply = import(`./plugins/${id}/generator`);
       return {
         id,
         apply,
