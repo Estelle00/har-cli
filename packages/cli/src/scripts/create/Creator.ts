@@ -22,6 +22,7 @@ export default class Creator {
     // console.log(d);
     const plugins = this.resolvePlugins(rawPlugins);
     const generator = new Generator(context, { plugins, pkg });
+    await generator.generate();
     // console.log(generator);
     // writeFileTree(context, {
     //   "package.json": JSON.stringify(pkg, null, 2),

@@ -15,7 +15,7 @@
     "template"
   ],
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "esbuild platform=node target=node12 outdir=dist/",
     "build": "rimraf dist && tsc"
   },
   "devDependencies": {

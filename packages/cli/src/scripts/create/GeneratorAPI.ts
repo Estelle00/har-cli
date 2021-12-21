@@ -57,7 +57,7 @@ function renderFile(
   name: string,
   data: Record<string, any>,
   ejsOptions: Options
-) {
+): string | Promise<string> {
   const template = readFileSync(name, "utf-8");
 
   return ejs.render(template, data, ejsOptions);
@@ -98,7 +98,7 @@ class GeneratorAPI {
   render(source: string, addData = {}, ejsOptions: Options = {}) {
     const baseDir = extractCallDir();
     source = path.resolve(baseDir, source);
-    this.injectMiddleware((files) => {
+    this.injectMiddleware(async (files: Record<string, string>) => {
       const _files = globbySync("**/*", {
         cwd: source,
         dot: true,
@@ -119,7 +119,7 @@ class GeneratorAPI {
           })
           .join("/");
         const sourcePath = path.resolve(source, rawPath);
-        const content = renderFile(sourcePath, addData, ejsOptions);
+        const content = await renderFile(sourcePath, addData, ejsOptions);
         if (Buffer.isBuffer(content) || /[^\s]/.test(content)) {
           files[targetPath] = content;
         }
