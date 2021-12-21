@@ -4,7 +4,7 @@ import ejs, { Options } from "ejs";
 import { readFileSync } from "fs-extra";
 import deepmerge from "deepmerge";
 import tryGetNewerRange from "../../utils/tryGetNewerRange";
-import { globbySync } from "globby";
+import { sync } from "fast-glob";
 const isObject = (val: any) => val && typeof val === "object";
 function arrayMerge(a: any[], b: any[]) {
   return Array.from(new Set([...a, ...b]));
@@ -78,7 +78,12 @@ class GeneratorAPI {
       const val = files[key];
       const existing = pkg[key];
       if (isObject(val) && ["dependencies", "devDependencies"].includes(key)) {
-        pkg[key] = depsMerge(this.id, existing, val, this.generator.depSources);
+        pkg[key] = depsMerge(
+          this.id,
+          existing || {},
+          val,
+          this.generator.depSources
+        );
       } else if (!(key in pkg)) {
         pkg[key] = val;
       } else if (Array.isArray(val) && Array.isArray(existing)) {
@@ -99,10 +104,11 @@ class GeneratorAPI {
     const baseDir = extractCallDir();
     source = path.resolve(baseDir, source);
     this.injectMiddleware(async (files: Record<string, string>) => {
-      const _files = globbySync("**/*", {
+      const _files = sync("**", {
         cwd: source,
         dot: true,
       });
+      console.log(_files, source);
       for (const rawPath of _files) {
         const targetPath = rawPath
           .split("/")

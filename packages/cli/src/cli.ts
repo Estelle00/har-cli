@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { cac } from "cac";
 import buildComponent from "./scripts/build-component";
 import initProject from "./scripts/init";

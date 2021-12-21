@@ -15,21 +15,13 @@ export default class Generator {
     this.plugins = options.plugins;
     this.pkg = options.pkg;
   }
-  initPlugins(): Promise<void> {
-    return new Promise((resolve) => {
-      let i = 0;
-      for (const plugin of this.plugins) {
-        const { id, apply } = plugin;
-        apply.then((res: any) => {
-          i++;
-          const api = new GeneratorAPI(id, this);
-          res.default(api);
-          if (i >= plugin.length - 1) {
-            resolve();
-          }
-        });
-      }
-    });
+  initPlugins() {
+    for (const plugin of this.plugins) {
+      const { id, apply } = plugin;
+      const api = new GeneratorAPI(id, this);
+      console.log(1);
+      apply(api);
+    }
   }
   async generate() {
     await this.initPlugins();

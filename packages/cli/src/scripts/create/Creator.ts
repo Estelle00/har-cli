@@ -1,9 +1,8 @@
 import { resolvePkg } from "../../utils/pkg";
-// import { writeFileTree } from "../../utils/writeFileTree";
-import { createRequire } from "module";
-import path from "path";
-import { MODULE_PATH } from "../../config";
 import Generator from "./Generator";
+import { createRequire } from "node:module";
+import { loadModule } from "../../utils/module";
+import path from "node:path";
 export default class Creator {
   constructor(public readonly name: string, public readonly context: string) {}
   async create() {
@@ -16,26 +15,27 @@ export default class Creator {
       ...resolvePkg(context),
     };
     const rawPlugins = {
-      eslint: {},
+      "eslint-config": {},
     };
-    // const d = createRequire(path.resolve(context, "package.json"));
-    // console.log(d);
-    const plugins = this.resolvePlugins(rawPlugins);
+    const plugins = await this.resolvePlugins(rawPlugins);
     const generator = new Generator(context, { plugins, pkg });
     await generator.generate();
-    // console.log(generator);
-    // writeFileTree(context, {
-    //   "package.json": JSON.stringify(pkg, null, 2),
-    // });
   }
-  resolvePlugins(rawPlugins: Record<string, any>) {
-    return Object.keys(rawPlugins).map((id) => {
-      const apply = import(`./plugins/${id}/generator`);
-      return {
-        id,
+  async resolvePlugins(rawPlugins: Record<string, any>) {
+    const plugins = [];
+    for (const id of Object.keys(rawPlugins)) {
+      const moduleId = `@har/${id}/generator`;
+      // const t = createRequire(path.resolve(this.context, "package.json"))(
+      //   moduleId
+      // );
+      // console.log(t);
+      const { default: apply } = await import(moduleId);
+      plugins.push({
         apply,
         options: rawPlugins[id] || {},
-      };
-    });
+      });
+    }
+    console.log(0);
+    return plugins;
   }
 }
