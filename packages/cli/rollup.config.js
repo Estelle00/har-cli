@@ -31,6 +31,7 @@ export default (commandLineArgs) => {
         tsconfig: "./tsconfig.json",
         module: "esnext",
         target: "es2019",
+        esModuleInterop: true,
         ...(isProd
           ? {}
           : {

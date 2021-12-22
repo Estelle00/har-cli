@@ -1,4 +1,4 @@
-import { join, resolve } from "path";
+import { join, resolve } from "node:path";
 export const OUT_DIR = "dist";
 export const CWD = process.cwd();
 export const OUT_DIR_ES = join(OUT_DIR, "es");

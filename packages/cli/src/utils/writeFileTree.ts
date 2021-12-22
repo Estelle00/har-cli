@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { ensureDirSync, writeFileSync } from "fs-extra";
 
 export function writeFileTree(dir: string, files: Record<string, string>) {

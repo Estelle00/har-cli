@@ -1,5 +1,5 @@
 import type Generator from "./Generator";
-import path from "path";
+import path from "node:path";
 import ejs, { Options } from "ejs";
 import { readFileSync } from "fs-extra";
 import deepmerge from "deepmerge";

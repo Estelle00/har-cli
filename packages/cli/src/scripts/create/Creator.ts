@@ -1,8 +1,6 @@
 import { resolvePkg } from "../../utils/pkg";
 import Generator from "./Generator";
-import { createRequire } from "node:module";
 import { loadModule } from "../../utils/module";
-import path from "node:path";
 export default class Creator {
   constructor(public readonly name: string, public readonly context: string) {}
   async create() {
@@ -29,7 +27,7 @@ export default class Creator {
       //   moduleId
       // );
       // console.log(t);
-      const { default: apply } = await import(moduleId);
+      const apply = loadModule(moduleId, this.context);
       plugins.push({
         apply,
         options: rawPlugins[id] || {},
