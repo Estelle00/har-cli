@@ -1,0 +1,45 @@
+{
+  "name": "@har/vite-plugin-doc",
+  "version": "1.0.0",
+  "description": "基于vite的文档插件",
+  "keywords": [
+    "doc",
+    "docs",
+    "vite",
+    "vite-doc"
+  ],
+  "author": "liubingwen <liubingwen@huianrong.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://nexus.huianrong.com/repository/npm-group/"
+  },
+  "peerDependencies": {
+    "vite": "^2.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@192.168.3.199:10022/frontend/har-cli.git"
+  },
+  "scripts": {
+    "dev": "rimraf dist && tsc -W",
+    "build": "rimraf dist && tsc"
+  },
+  "dependencies": {
+    "@types/change-case": "^2.3.1",
+    "@vue/compiler-sfc": "^3.2.26",
+    "change-case": "^4.1.2",
+    "gray-matter": "^4.0.3",
+    "marked": "^4.0.8",
+    "prismjs": "^1.25.0"
+  },
+  "devDependencies": {
+    "@types/marked": "^4.0.1",
+    "@types/prismjs": "^1.16.6"
+  }
+}
