@@ -1,0 +1,31 @@
+{
+  "name": "@har/vue-doc",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "liubingwen <liubingwen@huianrong.com>",
+  "homepage": "",
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "https://nexus.huianrong.com/repository/npm-hosted/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@192.168.3.199:10022/frontend/har-cli.git"
+  },
+  "scripts": {
+    "dev": "node ./node_modules/@har/cli/bin/har dev:doc"
+  },
+  "dependencies": {
+    "@har/cli": "^1.0.2",
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.12",
+    "@arco-design/web-vue": "^2.13.0",
+    "prismjs": "^1.25.0"
+  },
+  "devDependencies": {
+    "@har/eslint-config": "^1.1.0",
+    "eslint": "^8.3.0",
+    "typescript": "^4.4.4",
+    "less": "^4.1.2"
+  }
+}
