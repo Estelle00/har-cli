@@ -5,47 +5,13 @@ import matter from "gray-matter";
 import loadLanguages from "prismjs/components/index";
 import path from "node:path";
 import { paramCase } from "change-case";
+import { cleanUrl, escape } from "./markHelpers";
 const languages = ["shell", "js", "ts", "jsx", "tsx", "less", "java"];
 loadLanguages(languages);
+
 function loadHighlighted(code: string, lang: string) {
   return Prism.highlight(code, Prism.languages[lang], lang);
 }
-//
-// function highlight(code: string, lang: string): string {
-//   if (lang === "vue") {
-//     const { descriptor } = parse(code);
-//     const { script, styles } = descriptor;
-//     let htmlContent = code;
-//     const hasStyles = styles.length > 0;
-//     if (script?.content) {
-//       htmlContent = htmlContent.replace(script.content, "$script$");
-//     }
-//     if (hasStyles) {
-//       styles.forEach((style, index) => {
-//         htmlContent = htmlContent.replace(style.content, `$style-${index}$`);
-//       });
-//     }
-//     let highlighted = loadHighlighted(htmlContent, "html");
-//     if (script?.content) {
-//       const lang = script.lang ?? "js";
-//       const highlightedScript = loadHighlighted(script.content, lang);
-//       highlighted = highlighted.replace("$script$", highlightedScript);
-//     }
-//     if (hasStyles) {
-//       styles.forEach((style, index) => {
-//         const lang = style.lang ?? "css";
-//         const highlightedStyle = loadHighlighted(style.content, lang);
-//         highlighted = highlighted.replace(`$style-${index}$`, highlightedStyle);
-//       });
-//     }
-//     return highlighted;
-//   }
-//   if (languages.includes(lang)) {
-//     return loadHighlighted(code, lang);
-//   }
-//   return code;
-// }
-
 marked.setOptions({
   highlight(code: string, lang: string): string | void {
     if (lang === "vue") {
@@ -154,6 +120,41 @@ marked.use({
       code = `${code.replace(/\n$/, "")}\n`;
       // @ts-ignore
       return getContent(code, lang);
+    },
+    table(header: string, body: string) {
+      return `<a-table class="component-api-table">
+  <colgroup><col style="min-width: 100px"></colgroup>
+  <a-thead>${header}</a-thead>
+  <a-tbody>${body}</a-tbody>
+</a-table>`;
+    },
+    tablerow(content) {
+      return `<a-tr>${content}</a-tr>`;
+    },
+    tablecell(content: string, { header }) {
+      if (header) {
+        return `<a-th>${content}</a-th>`;
+      }
+      return `<a-td>${content}</a-td>`;
+    },
+    link(href, title, text) {
+      // @ts-ignore
+      href = cleanUrl(this.options.sanitize, this.options.baseUrl, href);
+      if (href === null) {
+        return text;
+      }
+      let out = `<a class="link" href="${escape(href)}"`;
+      if (title) {
+        if (/_blank/.test(title)) {
+          out += " target='_blank'";
+          title = title.replace("_blank", "").trim();
+        }
+        if (title) {
+          out += ` title=${title}`;
+        }
+      }
+      out += `>${text}</a>`;
+      return out;
     },
   },
   // [ts提示错误](https://marked.js.org/using_pro#extensions)

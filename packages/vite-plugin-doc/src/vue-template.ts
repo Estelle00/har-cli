@@ -43,10 +43,10 @@ export function getDemoVue({
     <template #description>${description}</template>
     <cell-demo>
       <virtual-demo />
-      <cell-code>
-        ${code}
-      </cell-code>
     </cell-demo>
+    <cell-code>
+      ${code}
+    </cell-code>
   </code-block>
 </template>
 <script lang="ts">

@@ -26,15 +26,21 @@ export function transformDemo(
 ) {
   const basename = path.basename(filename, ".md");
   const virtualPath = getVirtualPath(filename);
+  let description = "";
+  if (frontMatter?.description) {
+    description = marked(frontMatter.description);
+  }
   const data: DemoVueType = {
     id: basename,
     title: frontMatter?.title || "",
-    description: frontMatter?.description || "",
+    description,
     virtualPath,
     code: "",
   };
   for (const token of tokens) {
-    if (token.type === "code" && token.lang === "vue") {
+    if (token.type === "blockquote") {
+      data.description = marked(token.raw);
+    } else if (token.type === "code" && token.lang === "vue") {
       setCache(virtualPath, token.text);
       data.code = marked.parser([token]);
     }
