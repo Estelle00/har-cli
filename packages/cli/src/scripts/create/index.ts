@@ -1,8 +1,8 @@
-import Creator from "./create/Creator";
-import { CWD } from "../config";
+import Creator from "./Creator";
+import { CWD } from "../../config";
 import path from "node:path";
-import { stopSpinner } from "../utils/spinner";
-import { clearConsole, error } from "../utils/logger";
+import { stopSpinner } from "../../utils/spinner";
+import { clearConsole, error } from "../../utils/logger";
 import fs from "fs-extra";
 import inquirer from "inquirer";
 import chalk from "chalk";

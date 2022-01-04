@@ -12,7 +12,7 @@ export function getMainVue({ html, imports, components, data }: MainVueType) {
 </template>
 <script lang="ts">
   import { defineComponent } from "vue";
-	${imports.join(";\n")};
+	${imports.join("\n")};
 	export default defineComponent({
 	  name: "DocMain",
 	  components: { ${components.join(",")} },

@@ -4,6 +4,7 @@ import Prism from "prismjs";
 import matter from "gray-matter";
 import loadLanguages from "prismjs/components/index";
 import path from "node:path";
+import { paramCase } from "change-case";
 const languages = ["shell", "js", "ts", "jsx", "tsx", "less"];
 loadLanguages(languages);
 function loadHighlighted(code: string, lang: string) {
@@ -84,8 +85,8 @@ marked.setOptions({
     return code;
   },
 });
-function getContent(code: string, langPrefix?: string) {
-  return `<pre class="code-content"><code class="${langPrefix}lang">${code}</code></pre>\n`;
+function getContent(code: string, lang?: string) {
+  return `<pre class="code-content language-${lang}"><code>${code}</code></pre>\n`;
 }
 interface FileImportToken {
   type: "fileImport";
@@ -111,17 +112,19 @@ const fileImport = {
     }
   },
   renderer(token: FileImportToken) {
-    return `<demo-${token.basename} />/\n`;
+    const Component = paramCase(`demo-` + token.basename);
+    return `<${Component} />\n`;
   },
 };
 const frontMatter = {
   name: "frontMatter",
   level: "block",
   tokenizer(src: string) {
-    const { data } = matter(src);
+    const { data, content } = matter(src);
     if (Object.keys(data).length) {
       return {
         type: "frontMatter",
+        raw: src.replace(content, ""),
         data,
       };
     }
@@ -150,11 +153,11 @@ marked.use({
       });
       code = `${code.replace(/\n$/, "")}\n`;
       // @ts-ignore
-      return getContent(code, this.options.langPrefix || "undefined-");
+      return getContent(code, lang);
     },
   },
   // [ts提示错误](https://marked.js.org/using_pro#extensions)
   // @ts-ignore
-  extensions: [fileImport, frontMatter],
+  extensions: [frontMatter, fileImport],
 });
 export default marked;

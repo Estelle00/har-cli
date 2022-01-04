@@ -1,4 +1,4 @@
-import type { Plugin, ResolvedConfig } from "vite";
+import type { Plugin } from "vite";
 import { getCache } from "./cache";
 import marked from "./marked";
 import { transformDemo, transformMain } from "./markdownToVue";
