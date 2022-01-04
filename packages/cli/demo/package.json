@@ -1,9 +1,0 @@
-{
-  "name": "test",
-  "version": "0.0.0",
-  "private": true,
-  "devDependencies": {},
-  "@har/eslint-config": "^1.1.1",
-  "readme": "ERROR: No README data found!",
-  "_id": "test@0.0.0"
-}

@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import loadLanguages from "prismjs/components/index";
 import path from "node:path";
 import { paramCase } from "change-case";
-const languages = ["shell", "js", "ts", "jsx", "tsx", "less"];
+const languages = ["shell", "js", "ts", "jsx", "tsx", "less", "java"];
 loadLanguages(languages);
 function loadHighlighted(code: string, lang: string) {
   return Prism.highlight(code, Prism.languages[lang], lang);

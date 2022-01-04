@@ -7,6 +7,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 export default defineConfig({
   mode: "development",
   server: {
+    open: true,
     host: "0.0.0.0",
     port: 2333,
     fs: {
@@ -16,7 +17,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@/": path.resolve(CWD, "src"),
+      "@": path.resolve(CWD, "src"),
     },
   },
   plugins: [createVueDoc(), vuePlugin(), vueJsx()],
