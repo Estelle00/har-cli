@@ -13,7 +13,7 @@ export default defineComponent({
 <style scoped lang="less">
 .cell-demo {
   margin-top: 24px;
-  padding: 48px;
+  padding: 24px;
   border: 1px solid var(--color-border);
   border-radius: 2px 2px 0 0;
 }

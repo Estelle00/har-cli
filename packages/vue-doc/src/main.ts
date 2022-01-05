@@ -5,14 +5,17 @@ import App from "./app.vue";
 import { createApp } from "vue";
 import router from "@/router";
 import "prismjs/themes/prism-tomorrow.css";
+import "@/style/index.less";
 import CellDemo from "@/components/cell-demo/index.vue";
 import CodeBlock from "@/components/code-block/index.vue";
 import CellCode from "@/components/cell-code/index.vue";
+import DocArticle from "@/components/doc-article/index.vue";
 async function run() {
   const app = createApp(App);
   app.component(CellDemo.name, CellDemo);
   app.component(CodeBlock.name, CodeBlock);
   app.component(CellCode.name, CellCode);
+  app.component(DocArticle.name, DocArticle);
   app.use(Arco);
   app.use(ArcoIcon);
   app.use(router);

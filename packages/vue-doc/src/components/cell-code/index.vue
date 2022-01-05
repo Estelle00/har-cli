@@ -60,7 +60,7 @@ const style = computed<CSSProperties>(() => {
       height: height ? height + "px" : "auto",
     };
   }
-  return { height: 0 };
+  return { height: 0, marginTop: 0 };
 });
 function handleClick() {
   showCode.value = !showCode.value;
@@ -81,7 +81,7 @@ function handleClickCopy() {
     margin-top: 16px;
     overflow: hidden;
     background-color: var(--color-fill-1);
-    transition: height 200ms;
+    transition: all 200ms;
   }
 
   &-operation {

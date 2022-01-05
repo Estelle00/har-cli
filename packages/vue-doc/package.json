@@ -16,6 +16,7 @@
     "dev": "node ./node_modules/@har/cli/bin/har dev:doc"
   },
   "dependencies": {
+    "@har/use": "^2.1.2",
     "@har/cli": "^1.0.2",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12",
