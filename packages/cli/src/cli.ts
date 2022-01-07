@@ -13,6 +13,5 @@ cli.command("create <app-name>").action(async (appName) => {
   await create(appName);
 });
 cli.help();
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 cli.version(require("../package.json").version);
 cli.parse();
