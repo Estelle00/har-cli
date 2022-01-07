@@ -18,7 +18,14 @@ module.exports = {
     node: true,
     browser: true,
   },
+  globals: {
+    defineProps: true,
+    defineEmits: true,
+    defineExpose: true,
+    withDefaults: true,
+  },
   rules: {
+    "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-comment": "off",
