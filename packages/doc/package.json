@@ -1,5 +1,5 @@
 {
-  "name": "@har/vue-doc",
+  "name": "@har/doc",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "liubingwen <liubingwen@huianrong.com>",
@@ -17,16 +17,20 @@
   },
   "dependencies": {
     "@har/use": "^2.1.2",
-    "@har/cli": "^1.0.2",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12",
+    "@vitejs/plugin-vue": "^2.0.1",
     "@arco-design/web-vue": "^2.13.0",
-    "prismjs": "^1.25.0"
+    "prismjs": "^1.25.0",
+    "less": "^4.1.2",
+    "vite": "^2.7.6",
+    "fs-extra": "^9.1.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "cac": "^6.7.12",
     "@har/eslint-config": "^1.1.0",
     "eslint": "^8.3.0",
-    "typescript": "^4.4.4",
-    "less": "^4.1.2"
+    "typescript": "^4.4.4"
   }
 }

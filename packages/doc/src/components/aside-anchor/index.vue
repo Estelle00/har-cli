@@ -12,13 +12,12 @@
         <icon-left v-else />
       </a-button>
     </div>
-    <a-anchor class="anchor">
+    <a-anchor class="anchor" :change-hash="false" line-less>
       <a-anchor-link
         v-for="(item, index) in anchors"
         :key="index"
-        :href="item.href"
-        >{{ item.title }}</a-anchor-link
-      >
+        v-bind="item"
+      />
     </a-anchor>
   </aside>
 </template>

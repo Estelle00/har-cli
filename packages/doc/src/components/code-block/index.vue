@@ -37,10 +37,10 @@ if (props.title) {
     margin: 0;
   }
   h2 {
-    margin: 36px 0 12px;
+    //margin: 36px 0 12px;
     color: var(--color-text-1);
     font-weight: 500;
-    font-size: 20px;
+    //font-size: 20px;
   }
 
   ::v-deep(p) {
