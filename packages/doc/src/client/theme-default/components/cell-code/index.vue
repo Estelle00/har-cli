@@ -42,7 +42,7 @@ export default defineComponent({
 </script>
 <script setup lang="ts">
 import { computed, CSSProperties, onMounted, ref } from "vue";
-import copy from "@/utils/clipboard";
+import copy from "../../utils/clipboard";
 import { Message } from "@arco-design/web-vue";
 const showCode = ref(false);
 const contentRef = ref<HTMLElement>();

@@ -4,19 +4,70 @@ import {
   mergeConfig,
   normalizePath,
   UserConfig as ViteConfig,
+  AliasOptions,
 } from "vite";
-import { HeadConfig } from "../shared";
 import { Options as VuePluginOptions } from "@vitejs/plugin-vue";
 import fs from "fs-extra";
+import { HeadConfig, SiteData } from "../types";
+import { DEFAULT_THEME_PATH, resolveAliases } from "./alias";
+import globby from "globby";
 type CommandType = "serve" | "build";
+
+export interface SiteConfig<ThemeConfig = any>
+  extends Pick<UserConfig, "vue" | "vite"> {
+  root: string;
+  srcDir: string;
+  site: SiteData<ThemeConfig>;
+  configPath: string | undefined;
+  themeDir: string;
+  outDir: string;
+  tempDir: string;
+  alias: AliasOptions;
+  pages: string[];
+}
+function getThemeDir(root: string = process.cwd()) {
+  const userThemeDir = resolve(root, "theme");
+  if (fs.pathExistsSync(userThemeDir)) {
+    return userThemeDir;
+  }
+  return DEFAULT_THEME_PATH;
+}
 
 export async function resolveConfig(
   root: string = process.cwd(),
   command: CommandType = "serve",
   mode = "development"
-) {
+): Promise<SiteConfig> {
   const [useConfig, configPath] = await resolveUserConfig(root, command, mode);
-  const site = await resolveSiteData(root, useConfig);
+  const site = resolveSiteData(root, useConfig);
+  const srcDir = path.resolve(root, useConfig.srcDir || ".");
+  const outDir = useConfig.outDir
+    ? path.resolve(root, useConfig.outDir)
+    : resolve(root, "dist");
+  const themeDir = getThemeDir(root);
+  console.log(themeDir);
+  const pages = (
+    await globby(["**.md"], {
+      cwd: srcDir,
+      ignore: [
+        "**/node_modules",
+        ...(useConfig.srcExclude || ["**/__demo__/**"]),
+      ],
+    })
+  ).sort();
+  return {
+    root,
+    srcDir,
+    site,
+    configPath,
+    themeDir,
+    outDir,
+    tempDir: "",
+    pages,
+    alias: resolveAliases(themeDir),
+    vue: useConfig.vue,
+    vite: useConfig.vite,
+  };
 }
 const resolve = (root: string, file: string) =>
   normalizePath(path.resolve(root, `.doc`, file));
@@ -77,13 +128,7 @@ export interface UserConfig<ThemeConfig = any> {
 
   srcDir?: string;
   srcExclude?: string[];
-  shouldPreload?: (link: string, page: string) => boolean;
-
-  /**
-   * Enable MPA / zero-JS mode
-   * @experimental
-   */
-  mpa?: boolean;
+  outDir?: string;
 }
 export type RawConfigExports =
   | UserConfig
@@ -102,11 +147,11 @@ async function resolveConfigExtends(
 
 export function resolveSiteData(root: string, userConfig: UserConfig) {
   return {
-    lang: userConfig.lang || "en-US",
-    title: userConfig.title || "VitePress",
-    description: userConfig.description || "A VitePress site",
     base: userConfig.base ? userConfig.base.replace(/([^/])$/, "$1/") : "/",
+    lang: userConfig.lang || "zh-CN",
+    title: userConfig.title || "vue-doc",
+    description: userConfig.description || "A vue doc site",
     head: userConfig.head || [],
     themeConfig: userConfig.themeConfig || {},
-  };
+  } as const;
 }

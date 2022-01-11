@@ -23,10 +23,10 @@ export default defineComponent({
 });
 </script>
 <script lang="ts" setup>
-import AsideAnchor from "@/components/aside-anchor/index.vue";
+import AsideAnchor from "../aside-anchor/index.vue";
 import { provide, reactive } from "vue";
 import { articleInjectKey } from "./context";
-import { AnchorData } from "@/components/aside-anchor/interface";
+import { AnchorData } from "../aside-anchor/interface";
 
 defineProps<{
   title: string;

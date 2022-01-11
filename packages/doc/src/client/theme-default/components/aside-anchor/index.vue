@@ -32,7 +32,7 @@ export default defineComponent({
 <script lang="ts" setup>
 import { AnchorData } from "./interface";
 import { computed, withDefaults } from "vue";
-import UseCollapseAnchor from "@/hooks/useCollapseAnchor";
+import UseCollapseAnchor from "../../hooks/useCollapseAnchor";
 withDefaults(defineProps<{ anchors: AnchorData[] }>(), {
   anchors: () => [],
 });

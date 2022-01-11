@@ -1,4 +1,4 @@
-import { AnchorData } from "@/components/aside-anchor/interface";
+import { AnchorData } from "../aside-anchor/interface";
 import { InjectionKey } from "vue";
 
 interface ArticleContext {

@@ -14,7 +14,7 @@ export default defineComponent({
 </script>
 <script lang="ts" setup>
 import { getCurrentInstance, inject, withDefaults } from "vue";
-import { articleInjectKey } from "@/components/doc-article/context";
+import { articleInjectKey } from "../doc-article/context";
 
 const article = inject(articleInjectKey);
 const props = withDefaults(
