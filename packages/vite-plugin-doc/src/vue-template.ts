@@ -11,6 +11,7 @@ export function getMainVue({ html, imports, components, data }: MainVueType) {
   </doc-article>
 </template>
 <script lang="ts">
+	export const __pageData = ${JSON.stringify(data)};
   import { defineComponent } from "vue";
 	${imports.join("\n")};
 	export default defineComponent({
