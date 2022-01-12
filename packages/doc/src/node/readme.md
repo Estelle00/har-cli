@@ -1,6 +1,6 @@
 ---
-title: 按钮 Button
-description: 按钮是一种命令组件，可发起一个即时操作。
+title: "标题"
+home: true
 ---
 ## 标题
 ```java
@@ -19,6 +19,7 @@ public class HelloWorld {
 123
 
 @import "./__demo__/basic.md"
+
 
 ### `<button>` Props
 

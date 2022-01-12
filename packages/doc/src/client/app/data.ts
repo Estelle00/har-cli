@@ -1,6 +1,6 @@
 import { Route } from "./router";
 import serializedSiteData from "@siteData";
-import { SiteData } from "../../types";
+import { SiteData } from "../types";
 import { computed, inject, InjectionKey, readonly, Ref, shallowRef } from "vue";
 export const siteDataRef: Ref<SiteData> = shallowRef(
   readonly(serializedSiteData) as SiteData

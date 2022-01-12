@@ -2,8 +2,8 @@
   <aside-anchor v-if="anchors.length" :anchors="anchors" />
   <main class="main">
     <article class="doc-article">
-      <div class="article-header">
-        <h1 class="article-title">{{ title }}</h1>
+      <div class="article-header" v-if="title || description">
+        <h1 class="article-title" v-if="title">{{ title }}</h1>
         <div v-if="description" class="article-description">
           {{ description }}
         </div>
@@ -29,7 +29,7 @@ import { articleInjectKey } from "./context";
 import { AnchorData } from "../aside-anchor/interface";
 
 defineProps<{
-  title: string;
+  title?: string;
   description?: string;
 }>();
 const anchors = reactive<AnchorData[]>([]);

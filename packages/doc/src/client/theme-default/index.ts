@@ -1,6 +1,6 @@
 import { Theme } from "@har/doc";
-import Layout from "./Layout.vue";
-import NotFound from "./NotFound.vue";
+import Layout from "./layouts/Layout.vue";
+import NotFound from "./layouts/NotFound.vue";
 import "@arco-design/web-vue/dist/arco.less";
 import ArcoVue from "@arco-design/web-vue";
 import ArcoIcon from "@arco-design/web-vue/es/icon";
@@ -15,10 +15,10 @@ const theme: Theme = {
   Layout,
   NotFound,
   enhanceApp({ app }) {
-    app.component(CellDemo.name, CellDemo);
-    app.component(CodeBlock.name, CodeBlock);
-    app.component(CellCode.name, CellCode);
-    app.component(DocArticle.name, DocArticle);
+    app.component(CellDemo.name!, CellDemo);
+    app.component(CodeBlock.name!, CodeBlock);
+    app.component(CellCode.name!, CellCode);
+    app.component(DocArticle.name!, DocArticle);
     app.use(ArcoVue);
     app.use(ArcoIcon);
   },

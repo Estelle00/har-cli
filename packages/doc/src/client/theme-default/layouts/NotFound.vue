@@ -1,11 +1,14 @@
 <template>
-  <div class="theme">
-    <h1>404</h1>
-    <blockquote>{{ getMsg() }}</blockquote>
-    <a :href="site.base" aria-label="go to home">Take me home.</a>
+  <div class="theme-container">
+    <div class="theme-default-content">
+      <h1>404</h1>
+
+      <blockquote>{{ getMsg() }}</blockquote>
+
+      <a :href="site.base">返回首页</a>
+    </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import { useData } from "@har/doc";
 

@@ -9,7 +9,7 @@ description: 按钮分为 `primary` - **主要按钮**、`secondary` - **次要�
   <a-space>
     <a-button type="primary">Primary</a-button>
     <a-button>Secondary</a-button>
-    <a-button type="dashed">Dashed</a-button>
+    <a-button type="dashed">Das1hed</a-button>
     <a-button type="outline">Outline</a-button>
     <a-button type="text">Text</a-button>
   </a-space>

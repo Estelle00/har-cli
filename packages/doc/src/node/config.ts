@@ -8,11 +8,32 @@ import {
 } from "vite";
 import { Options as VuePluginOptions } from "@vitejs/plugin-vue";
 import fs from "fs-extra";
-import { HeadConfig, SiteData } from "../types";
+import { HeadConfig, SiteData } from "../client/types";
 import { DEFAULT_THEME_PATH, resolveAliases } from "./alias";
 import globby from "globby";
 type CommandType = "serve" | "build";
 
+export interface UserConfig<ThemeConfig = any> {
+  extends?: RawConfigExports;
+  lang?: string;
+  base?: string;
+  title?: string;
+  description?: string;
+  head?: HeadConfig[];
+  themeConfig?: ThemeConfig;
+  /**
+   * Opitons to pass on to `@vitejs/plugin-vue`
+   */
+  vue?: VuePluginOptions;
+  /**
+   * Vite config
+   */
+  vite?: ViteConfig;
+
+  srcDir?: string;
+  srcExclude?: string[];
+  outDir?: string;
+}
 export interface SiteConfig<ThemeConfig = any>
   extends Pick<UserConfig, "vue" | "vite"> {
   root: string;
@@ -23,6 +44,7 @@ export interface SiteConfig<ThemeConfig = any>
   outDir: string;
   tempDir: string;
   alias: AliasOptions;
+  srcExclude: string[];
   pages: string[];
 }
 function getThemeDir(root: string = process.cwd()) {
@@ -38,21 +60,19 @@ export async function resolveConfig(
   command: CommandType = "serve",
   mode = "development"
 ): Promise<SiteConfig> {
-  const [useConfig, configPath] = await resolveUserConfig(root, command, mode);
-  const site = resolveSiteData(root, useConfig);
-  const srcDir = path.resolve(root, useConfig.srcDir || ".");
-  const outDir = useConfig.outDir
-    ? path.resolve(root, useConfig.outDir)
+  const [userConfig, configPath] = await resolveUserConfig(root, command, mode);
+  const { srcExclude = [] } = userConfig;
+  srcExclude.push("**/__demo__/**");
+  const site = resolveSiteData(root, userConfig);
+  const srcDir = path.resolve(root, userConfig.srcDir || ".");
+  const outDir = userConfig.outDir
+    ? path.resolve(root, userConfig.outDir)
     : resolve(root, "dist");
   const themeDir = getThemeDir(root);
-  console.log(themeDir);
   const pages = (
     await globby(["**.md"], {
       cwd: srcDir,
-      ignore: [
-        "**/node_modules",
-        ...(useConfig.srcExclude || ["**/__demo__/**"]),
-      ],
+      ignore: ["**/node_modules", ...srcExclude],
     })
   ).sort();
   return {
@@ -63,10 +83,11 @@ export async function resolveConfig(
     themeDir,
     outDir,
     tempDir: "",
+    srcExclude,
     pages,
     alias: resolveAliases(themeDir),
-    vue: useConfig.vue,
-    vite: useConfig.vite,
+    vue: userConfig.vue,
+    vite: userConfig.vite,
   };
 }
 const resolve = (root: string, file: string) =>
@@ -108,27 +129,6 @@ async function resolveUserConfig(
   }
   const userConfig = await getFileConfig(configPath, root, command, mode);
   return [await resolveConfigExtends(userConfig), configPath];
-}
-export interface UserConfig<ThemeConfig = any> {
-  extends?: RawConfigExports;
-  lang?: string;
-  base?: string;
-  title?: string;
-  description?: string;
-  head?: HeadConfig[];
-  themeConfig?: ThemeConfig;
-  /**
-   * Opitons to pass on to `@vitejs/plugin-vue`
-   */
-  vue?: VuePluginOptions;
-  /**
-   * Vite config
-   */
-  vite?: ViteConfig;
-
-  srcDir?: string;
-  srcExclude?: string[];
-  outDir?: string;
 }
 export type RawConfigExports =
   | UserConfig

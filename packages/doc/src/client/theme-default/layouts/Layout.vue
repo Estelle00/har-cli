@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, defineAsyncComponent } from "vue";
 import { useData } from "@har/doc";
 // components
 // import NavBar from "./components/NavBar.vue";
 // import SideBar from "./components/SideBar.vue";
-import Page from "./components/Page.vue";
+import Page from "../components/Page.vue";
 
-// const Home = defineAsyncComponent(() => import("./components/Home.vue"));
+const Home = defineAsyncComponent(() => import("../components/home/index.vue"));
 
 const { site, frontmatter } = useData();
 
@@ -35,6 +35,7 @@ const pageClasses = computed(() => {
 <template>
   <div class="theme" :class="pageClasses">
     <doc-content v-if="isCustomLayout" />
+    <home v-else-if="enableHome"></home>
     <Page v-else>
       <template #top>
         <slot name="page-top" />
