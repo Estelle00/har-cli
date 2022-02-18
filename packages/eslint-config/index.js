@@ -23,6 +23,8 @@ module.exports = {
     defineEmits: true,
     defineExpose: true,
     withDefaults: true,
+    uni: true,
+    wx: true,
   },
   rules: {
     "@typescript-eslint/no-var-requires": "off",
