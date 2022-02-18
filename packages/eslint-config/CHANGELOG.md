@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](http://192.168.3.199:10086/frontend/har-cli/compare/@har/eslint-config@1.1.1...@har/eslint-config@1.2.0) (2022-02-18)
+
+
+### Features
+
+* 添加 uni wx globals ([60de8c0](http://192.168.3.199:10086/frontend/har-cli/commits/60de8c0f3733b5d447f86abce81f4c62a5ea55dc))
+* add some globals ([d16a8f5](http://192.168.3.199:10086/frontend/har-cli/commits/d16a8f5f1375d598560c66130a713eeb8115155e))
+
+
+
+
+
 ## [1.1.1](http://192.168.3.199:10086/frontend/har-cli/compare/@har/eslint-config@1.1.1-alpha.0...@har/eslint-config@1.1.1) (2021-12-10)
 
 **Note:** Version bump only for package @har/eslint-config
