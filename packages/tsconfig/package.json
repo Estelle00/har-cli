@@ -1,8 +1,7 @@
 {
   "name": "@har/tsconfig",
   "version": "1.0.0",
-  "description": "汇安融vue3项目默认eslint配置",
-  "main": "index.js",
+  "description": "汇安融vue3项目默认ts配置",
   "devDependencies": {
     "lerna-changelog": "^2.2.0"
   },
@@ -19,6 +18,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://192.168.3.199:10086/frontend/har-cli"
+    "url": "https://git.huianrong.com/frontend/har-cli"
   }
 }

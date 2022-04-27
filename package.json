@@ -20,6 +20,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://192.168.3.199:10086/frontend/har-cli"
+    "url": "https://git.huianrong.com/frontend/har-cli"
   }
 }
