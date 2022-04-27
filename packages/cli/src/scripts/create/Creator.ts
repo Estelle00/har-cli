@@ -14,6 +14,7 @@ export default class Creator {
     };
     const rawPlugins = {
       "eslint-config": {},
+      "tsconfig": {},
     };
     const plugins = await this.resolvePlugins(rawPlugins);
     const generator = new Generator(context, { plugins, pkg });

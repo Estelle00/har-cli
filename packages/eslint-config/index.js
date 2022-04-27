@@ -1,10 +1,12 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 module.exports = {
   extends: [
     "plugin:vue/vue3-essential",
     "eslint:recommended",
-    "@vue/typescript/recommended",
-    "prettier",
-    "plugin:prettier/recommended",
+    "@vue/eslint-config-typescript/recommended",
+    "@vue/eslint-config-prettier",
   ],
   parserOptions: {
     parser: "@typescript-eslint/parser",
@@ -14,15 +16,12 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   env: {
+    "vue/setup-compiler-macros": true,
     es6: true,
     node: true,
     browser: true,
   },
   globals: {
-    defineProps: true,
-    defineEmits: true,
-    defineExpose: true,
-    withDefaults: true,
     uni: true,
     wx: true,
   },

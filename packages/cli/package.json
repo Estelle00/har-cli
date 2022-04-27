@@ -1,6 +1,6 @@
 {
   "name": "@har/cli",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "简化vite配置",
   "author": "liubingwen <liubingwen@huianrong.com>",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "ssh://git@192.168.3.199:10022/frontend/har-cli.git"
   },
   "bin": {
-    "har": "./dist/cli.js"
+    "har": "./bin/har.js"
   },
   "files": [
     "dist",
@@ -50,5 +50,8 @@
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.huianrong.com/repository/npm-hosted"
   }
 }

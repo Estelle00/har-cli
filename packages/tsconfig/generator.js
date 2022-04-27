@@ -1,7 +1,7 @@
 module.exports = function (api) {
   api.extendPackage({
     devDependencies: {
-      "@har/eslint-config": "^1.2.0"
+      "@vue/tsconfig": "^0.1.3"
     },
   });
   api.render("./template");
