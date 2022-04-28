@@ -1,6 +1,6 @@
 {
   "name": "@har/doc",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "liubingwen <liubingwen@huianrong.com>",
   "homepage": "",
   "license": "ISC",
@@ -34,7 +34,7 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@har/eslint-config": "^1.3.0",
+    "@har/eslint-config": "^1.3.1",
     "@types/fs-extra": "^9.0.13",
     "chokidar": "^3.5.2",
     "eslint": "^8.3.0",

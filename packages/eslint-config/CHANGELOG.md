@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://git.huianrong.com/frontend/har-cli/compare/@har/eslint-config@1.3.0...@har/eslint-config@1.3.1) (2022-04-28)
+
+
+### Bug Fixes
+
+* **eslint:** 导入包文件缺失 ([3760432](https://git.huianrong.com/frontend/har-cli/commits/376043263de111060bc21bde3329cf2ee22ce2c2))
+
+
+
+
+
 # [1.3.0](https://git.huianrong.com/frontend/har-cli/compare/@har/eslint-config@1.2.0...@har/eslint-config@1.3.0) (2022-04-27)
 
 
