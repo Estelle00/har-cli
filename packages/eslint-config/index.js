@@ -7,16 +7,10 @@ module.exports = {
     "eslint:recommended",
     "@vue/eslint-config-typescript/recommended",
     "@vue/eslint-config-prettier",
+    "prettier"
   ],
   env: {
     "vue/setup-compiler-macros": true,
-    es6: true,
-    node: true,
-    browser: true,
-  },
-  globals: {
-    uni: true,
-    wx: true,
   },
   rules: {
     "@typescript-eslint/no-var-requires": "off",
