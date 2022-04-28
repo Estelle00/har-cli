@@ -8,13 +8,6 @@ module.exports = {
     "@vue/eslint-config-typescript/recommended",
     "@vue/eslint-config-prettier",
   ],
-  parserOptions: {
-    parser: "@typescript-eslint/parser",
-    ecmaVersion: 2020,
-    sourceType: "module",
-    extraFileExtensions: [".vue"],
-  },
-  plugins: ["@typescript-eslint"],
   env: {
     "vue/setup-compiler-macros": true,
     es6: true,
