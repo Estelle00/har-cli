@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@192.168.3.199:10022/frontend/har-cli.git"
+    "url": "git@git.huianrong.com:frontend/har-cli.git"
   },
   "scripts": {
     "docs-dev": "node ./bin/har-doc dev docs",
