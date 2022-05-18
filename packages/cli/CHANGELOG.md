@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://git.huianrong.com/frontend/har-cli/compare/@har/cli@1.2.0...@har/cli@1.2.1) (2022-05-18)
+
+**Note:** Version bump only for package @har/cli
+
+
+
+
+
 # [1.2.0](https://192.168.3.199:10022/frontend/har-cli/compare/@har/cli@1.1.0...@har/cli@1.2.0) (2022-04-27)
 
 

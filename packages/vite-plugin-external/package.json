@@ -1,6 +1,6 @@
 {
   "name": "@har/vite-plugin-external",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vite打包过滤node_modules",
   "keywords": [
     "vite-plugin",
