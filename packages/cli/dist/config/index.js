@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TEMPLATE_DIR = exports.MODULE_PATH = exports.OUT_DIR_LIB = exports.OUT_DIR_ES = exports.CWD = exports.OUT_DIR = void 0;
+const node_path_1 = require("node:path");
+exports.OUT_DIR = "dist";
+exports.CWD = process.cwd();
+exports.OUT_DIR_ES = (0, node_path_1.join)(exports.OUT_DIR, "es");
+exports.OUT_DIR_LIB = (0, node_path_1.join)(exports.OUT_DIR, "lib");
+exports.MODULE_PATH = (0, node_path_1.resolve)(__dirname, "../../");
+exports.TEMPLATE_DIR = (0, node_path_1.resolve)(exports.MODULE_PATH, "template");

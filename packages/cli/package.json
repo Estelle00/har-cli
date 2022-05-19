@@ -52,6 +52,6 @@
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "publishConfig": {
-    "registry": "https://nexus.huianrong.com/repository/npm-hosted"
+    "registry": "https://git.huianrong.com/api/v4/projects/137/packages/npm/"
   }
 }
